@@ -12,16 +12,6 @@ var dataM = require(__dirname + '/dataManagement.js');
 var allData = [];
 var preference;
 
-/* API TOKEN */
-const teamToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJDQlAiLCJ0ZWFtX2lkIjoiNWM1MGMwNzQtMzU3Mi0zZjQ5LWE2ZTgtZTNmMDNjNmMyN2ZjIiwiZXhwIjo5MjIzMzcyMDM2ODU0Nzc1LCJhcHBfaWQiOiIyMWY1NWNmMi02YTRkLTQxYTQtOGEwNS0zZmQ4ZmUzYWQ3MGIifQ.YJq6OHPXwdHJFI-JqderHB6R_wB1QggYmzcQjr_SThE";
-const initialCustomerId = "21f55cf2-6a4d-41a4-8a05-3fd8fe3ad70b_12e1edc1-044d-4b20-a62a-8f8626c91231";
-
-const util = require('util') // for printing objects
-const req = require('request-promise-native'); // use Request library + promises to reduce lines of cod
-
-// Transactions array based on preference
-var trans_json = [];
-
 // Global Variables
 var AGE_MAX;
 var AGE_MIN;
