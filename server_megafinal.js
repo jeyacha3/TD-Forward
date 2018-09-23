@@ -42,6 +42,7 @@ app.use(bodyParser.urlencoded({
 // Initial page (Terms of Service)
 app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/term.html'));
+  console.log(allData[0].length);
 });
 
 // Main page with drop down menus
@@ -72,11 +73,8 @@ app.post('/', (req, res) => {
        (allData[0][i].workActivity == WORK || WORK == 'ALL') &&
         allData[0][i].totalIncome <= INC_MAX &&
         allData[0][i].totalIncome >= INC_MIN) {
-         //console.log(allData[1][1]);
-          //console.log("hey sailor");
           var temp = [];
           for (var k = 0; k < allData[1][i].length; ++k) {
-            //console.log(allData[1][i][k]);
             if ((allData[1][i][k].categoryTags[0] == CATEGORY || CATEGORY == 'ALL')) {
               //console.log(CATEGORY);
               //console.log("hello again sailor");
@@ -89,7 +87,7 @@ app.post('/', (req, res) => {
             }
       //console.log(allData[0][i].givenName);
       
-      if (good) {filteredCustomerTransactions.push(temp); ++counter;}
+      if (good) {filteredCustomerTransactions.push(temp); ++counter; console.log(filteredCustomerTransactions)}
     }
   }
 
@@ -165,7 +163,7 @@ var applyFilters = function () {
   // Income
   switch (preference.forward_pref3) {
     case "i1":
-      INC_MAX = Number.MAX_SAFE_INTEGER;
+      INC_MAX = 1000000000;
       INC_MIN = 0;
       break;
     case "i2":
@@ -189,7 +187,7 @@ var applyFilters = function () {
       INC_MIN = 75000;
       break;
     default:
-      INC_MAX = Number.MAX_SAFE_INTEGER;
+      INC_MAX = 100000000000;
       INC_MIN = 0;
   }
 

@@ -64,11 +64,13 @@ function options(method, uri, body = null) {
     return new Promise(function (resolve, reject) {
       for (var i = 0; i < customers.length; ++i) {
         (function () {
+          
           req(options('GET', 'customers/' + customers[i].ID))
             .then((resp) => {
               customerInformation.push(resp.result);
               //console.log(customerInformation[i].givenName); // debugging purposes
             }, handleError)
+            
         })();
 
         // Pull customer last day transactions - Anthony
