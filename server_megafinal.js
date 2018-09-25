@@ -6,7 +6,9 @@ var path = require('path');
 var HTTP_PORT = process.env.PORT || 8080;
 
 var app = express();
-app.use(express.static('public'));
+app.use(express.static('public/images'));
+app.use(express.static('public/styles'));
+//app.use(express.static('BS'));
 
 var dataM = require(__dirname + '/dataManagement.js');
 var allData = [];
@@ -31,10 +33,14 @@ app.use(bodyParser.urlencoded({
 
 // Initial page (Terms of Service)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname + '/term.html'));
+  res.sendFile(path.join(__dirname + '/index.html'));
   console.log(allData[0].length);
 });
 
+app.get('/term', (req, res) => {
+  res.sendFile(path.join(__dirname + '/term.html'));
+  console.log(allData[0].length);
+});
 // Main page with drop down menus
 app.get('/main', (req, res) => {
   res.sendFile(path.join(__dirname + '/main.html'));
@@ -65,7 +71,7 @@ app.post('/', (req, res) => {
         allData[0][i].totalIncome >= INC_MIN) {
           var temp = [];
           for (var k = 0; k < allData[1][i].length; ++k) {
-            if ((allData[1][i][k].categoryTags[0] == CATEGORY || CATEGORY == 'ALL')) {
+            if ((allData[1][i][k].categoryTags[0] == CATEGORY)) {
               //console.log(CATEGORY);
               //console.log("hello again sailor");
               filteredCustomers[counter] = allData[0][i]; // store matched customer

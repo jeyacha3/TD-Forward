@@ -80,7 +80,7 @@ function options(method, uri, body = null) {
             .then((resp) => {
               var trans = resp.result;
 
-              var dateOffset = 2; // 1 day past for some reason
+              var dateOffset = 10; // 1 day past for some reason
 
               var oldDate = new Date();
               oldDate.setDate(oldDate.getDate() - dateOffset);

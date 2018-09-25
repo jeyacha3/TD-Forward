@@ -1,6 +1,11 @@
+@media only screen and (max-width: 768px) {
+    /* For mobile phones: */
+    .panel-body, .container, header {
+        width: 100%;
+    }
+}
 
-
-button {
+.button {
     display: block;
     width: 100%;
     color: #ffffff;
@@ -13,6 +18,17 @@ button {
     margin-top: 3px;
 }
 
-button:hover {
-    background-color: #007c16;
+.container {
+    left: 25%;
+    padding: 0 25%;
+}
+
+.panel-body {
+    overflow-y: scroll;
+    text-align: left;
+    width: 200%;
+}
+
+.TC {
+    text-align: center;
 }
